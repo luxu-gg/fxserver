@@ -18,7 +18,8 @@
   "scripts": {
     "format": "bun prettier ./scripts package.json -w",
     "fx": "bun run scripts/cli --",
-    "postinstall": "git submodule sync --recursive && git submodule update --init --recursive --remote"
+    "sync": "git submodule sync --recursive && git submodule update --init --recursive --remote",
+    "build:all": "bun scripts/build.ts"
   },
   "type": "module",
   "bun-create": {
