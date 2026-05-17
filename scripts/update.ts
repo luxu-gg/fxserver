@@ -14,15 +14,18 @@ interface ArtifactsApi {
 const infoFile = file(join(bin, ".info"));
 
 export async function checkUpdate() {
-  const info: { artifact: string; last_updated: number } =
-    (await infoFile.json().catch(() => {})) || {
-      artifact: "0",
-      last_updated: 0,
-    };
+  const info: { artifact: string; last_updated: number } = (await infoFile
+    .json()
+    .catch(() => {})) || {
+    artifact: "0",
+    last_updated: 0,
+  };
 
   const timestamp = Math.floor(Date.now() / 1000);
 
   if (timestamp - info.last_updated < 300) return;
+
+  process.stdout.write(`Checking for updates...`);
 
   const response = (await fetch(`https://artifacts.jgscripts.com/jsonv2`).then(
     (v) => v?.json().catch(() => ({})),
@@ -35,7 +38,7 @@ export async function checkUpdate() {
     }),
   );
 
-  if (info.artifact === response.recommendedArtifact) return;
+  if (info.artifact === response.recommendedArtifact) return process.stdout.write('\rYou are running the recommended artifact.\n');
 
   const issues = [];
 

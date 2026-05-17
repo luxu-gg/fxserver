@@ -9,13 +9,15 @@ program
   .description(
     "Starts the FXServer process directly (without launching txAdmin).",
   )
-  .action(() => start());
+  .option('--no-adhesive', 'Run fxserver without svadhesive')
+  .option('-u, --update', 'Update fxserver before starting')
+  .action(start);
 
 program
   .command("update")
   .description(
     "Installs the the latest recommended artifact from https://artifacts.jgscripts.com/",
   )
-  .action(() => checkUpdate());
+  .action(checkUpdate);
 
 program.parse();
