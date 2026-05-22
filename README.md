@@ -8,7 +8,7 @@ A minimal template for setting up a FiveM server using `bun create`.
 > Install [Bun](https://bun.com) (v1.3.11 or higher) and [Git](https://git-scm.com/) if you don't already have them.
 
 ```bash
-bun create overextended/fxserver
+bun create luxu-gg/fxserver
 cd fxserver
 bun i
 ```
