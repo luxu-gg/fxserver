@@ -9,6 +9,8 @@
 .replxx_history*
 
 node_modules
-/bin
+/artifacts
 /server-data/cache
 /server-data/config/secrets.cfg
+/config/profiles.json
+/config/artifact.json

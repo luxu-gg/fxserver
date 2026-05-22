@@ -6,7 +6,7 @@ import { Transform } from "stream";
 import unzipper from "unzipper";
 
 export const cwd = process.cwd();
-export const bin = join(cwd, "bin");
+export const artifactsDir = join(cwd, "artifacts");
 export const isLinux = process.platform === "linux";
 
 export async function downloadFile(url: string, outPath: string) {
